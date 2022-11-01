@@ -13,10 +13,10 @@ ErrorIP=""
 		pingOtvet=`fping ${ip}`
 
 		if [ "$pingOtvet" = "${ip} is alive" ]; then
-				echo "OK === $ip"
+			echo "OK === $ip"
 		else
-				echo "ERROR === $ip"
-				ErrorIP+="${ip}, "
+			echo "ERROR === $ip"
+			ErrorIP+="${ip}, "
 		fi
 	done
 
@@ -27,8 +27,8 @@ ErrorIP=""
 		echo "IP ALL ERROR === ${ErrorIP}"
 
 		if [ "$ErrorSendFlag" = 0 ]; then
-				ErrorSendFlag=1
-				echo "IP: ${ErrorIP}" | mutt -s "Не доступны IP" -- andrey-21x6@mail.ru
+			ErrorSendFlag=1
+			echo "IP: ${ErrorIP}" | mutt -s "Не доступны IP" -- andrey-21x6@mail.ru
 		fi
 	fi
 	
